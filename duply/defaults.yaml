@@ -7,7 +7,7 @@ Debian:
 RedHat:
   pkgs:
     - duply
-Freebsd:
+FreeBSD:
   pkgs:
     - duply
 {% endload %}
