@@ -21,7 +21,6 @@ duply_profile_{{ k }}_parent_dir:
     - name: {{ prof_loc }}
     - mode: 700
     - user: root
-    - group: root
 
 duply_profile_{{ k }}_dir:
   file:
@@ -30,7 +29,6 @@ duply_profile_{{ k }}_dir:
     - name: {{ prof_loc }}/{{ k }}
     - mode: 700
     - user: root
-    - group: root
 
 {% if v.ensure|default('directory') != 'absent' %}
 
@@ -41,7 +39,6 @@ duply_profile_{{ k }}_conf:
     - source: {{ v.profile_template_path|default('salt://duply/files/profile_conf') }}
     - mode: 600
     - user: root
-    - group: root
     - template: jinja
     - context:
       common_settings: {{ common_prof.conf|default({}) }}
@@ -55,7 +52,6 @@ duply_profile_{{ k }}_exclude:
     - source: {{ v.exclude_template_path|default('salt://duply/files/exclude') }}
     - mode: 600
     - user: root
-    - group: root
     - template: jinja
     - context:
       excludes: {{ v.excludes|default({}) }}
@@ -72,7 +68,6 @@ duply_profile_{{ k }}_pre_script:
       {% endif %}
     - mode: 700
     - user: root
-    - group: root
     - template: jinja
     {% endif %}
 
@@ -88,7 +83,6 @@ duply_profile_{{ k }}_post_script:
       {% endif %}
     - mode: 700
     - user: root
-    - group: root
     - template: jinja
     {% endif %}
   {% endif %}
